@@ -30,20 +30,36 @@ public class DynamicMusic : MonoBehaviour
 
         if (m_killCount == 0)
         {
-            if (!m_audioSource.isPlaying)
+            if (!m_audioSource.isPlaying && m_audioSource.clip != m_clip[0] && m_audioSource.clip != m_clip[1])
             {
                 m_audioSource.clip = m_clip[0];
+                m_audioSource.Play();
+            }else if (!m_audioSource.isPlaying && m_audioSource.clip == m_clip[0])
+            {
+                m_audioSource.clip = m_clip[1];
                 m_audioSource.Play();
             }
         }
 
         if (m_killCount >= 1 && m_playCount <= 1)
         {
-            m_audioSource.clip = m_clip[1];
+            if (m_audioSource.clip == m_clip[0])
+            {
+                if (!m_audioSource.isPlaying)
+                {
+                    m_audioSource.clip = m_clip[2];
+                    m_audioSource.Play();
+                    m_playCount += 2;
+                }
+            }else
+            {
+                m_audioSource.clip = m_clip[2];
+                m_playCount += 2;
+            }
+
             if (!m_audioSource.isPlaying)
             {
                 m_audioSource.Play();
-                m_playCount += 1;
             }
         }
 

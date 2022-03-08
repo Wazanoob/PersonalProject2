@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_clip:
+  - {fileID: 8300000, guid: d5e812bfb07fb424eaf34552caa66ef2, type: 3}
   - {fileID: 8300000, guid: 0ed01ba19bde0c7489e7830eedc881f6, type: 3}
   - {fileID: 8300000, guid: eca5e3ff8a502e34c9ed026626e5690d, type: 3}
   - {fileID: 8300000, guid: 16d22094e12fb914292bbb0084f4e4a6, type: 3}
