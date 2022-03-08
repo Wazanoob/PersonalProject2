@@ -18,7 +18,7 @@ public class ShotGun : MonoBehaviour
 
 
     [Header("Rapide Fire")]
-    [SerializeField] bool m_rapidFire = false;
+    public bool m_rapidFire = false;
 
     private bool m_readyToShoot = true;
     private int m_currentAmmo;
@@ -41,6 +41,11 @@ public class ShotGun : MonoBehaviour
         }
     }
 
+    public void RapidFire()
+    {
+        m_rapidFire = true;
+    }
+
     private void Shoot()
     {
         m_readyToShoot = false;
@@ -58,7 +63,14 @@ public class ShotGun : MonoBehaviour
             }
         }
 
-        Invoke("ResetShot", m_timeBetweenShoot);
+        if (!m_rapidFire)
+        {
+            Invoke("ResetShot", m_timeBetweenShoot);
+        }else
+        {
+            Invoke("ResetShot", m_timeBetweenShoot / 2);
+        }
+
     }
 
     IEnumerator Reload()

@@ -54,12 +54,10 @@ public class SpawnManager : MonoBehaviour
         m_collider = Physics.OverlapSphere(m_randomPos, 0.4f);
         if (m_collider.Length == 0)
         {
-            Debug.Log("No Collider");
             m_randomPos.y = 0f;
             return m_randomPos;
         }else
         {
-            Debug.Log("Collider");
             return Vector3.zero;
         }
     }
